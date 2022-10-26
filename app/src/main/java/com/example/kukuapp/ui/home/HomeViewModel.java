@@ -14,35 +14,34 @@ public class HomeViewModel extends ViewModel {
 
     public HomeViewModel() {
         products = new MutableLiveData<>();
-        ArrayList<Product> data = new ArrayList<Product>();
-        data.add(
+        ArrayList<Product> items = new ArrayList<>();
+        items.add(
                 new Product(
-                        "Product 1", "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Male_and_female_chicken_sitting_together.jpg/220px-Male_and_female_chicken_sitting_together.jpg", 199
+                        "Eggs", "https://source.unsplash.com/leOh1CzRZVQ", 300
                 )
         );
-        data.add(
+        items.add(
                 new Product(
-                        "Product 2", "https://image.shutterstock.com/image-photo/homemade-chicken-rotisserie-thyme-lemon-260nw-1574170006.jpg", 2199
+                        "Chicken", "https://source.unsplash.com/auijD19Byq8", 1000
                 )
         );
 
 
-        data.add(
+        items.add(
                 new Product(
-                        "Product 3", "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Eier_verschiedener_H%C3%BChnerrassen.jpg/220px-Eier_verschiedener_H%C3%BChnerrassen.jpg", 999
+                        "Chicks", "https://source.unsplash.com/gi4p27XKVY8", 2000
                 )
         );
-        data.add(
+        items.add(
                 new Product(
-                        "Product 4", "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Rooster_portrait2.jpg/300px-Rooster_portrait2.jpg", 219
+                        "Rooster", "https://source.unsplash.com/eSuB4XJxOZ4", 1500
                 )
         );
-        products.setValue(data);
+        products.setValue(items);
     }
 
 
-
-    LiveData<ArrayList<Product>> getData(){
+    LiveData<ArrayList<Product>> getData() {
         return products;
     }
 

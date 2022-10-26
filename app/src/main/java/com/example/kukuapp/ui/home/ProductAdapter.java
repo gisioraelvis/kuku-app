@@ -19,18 +19,19 @@ import java.util.ArrayList;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.Holder> {
     private ArrayList<Product> products = new ArrayList<>();
-   private View view;
+    private View view;
 
-   private Context context;
-   ProductAdapter( Context context){
-       this.context = context;
-   }
+    private Context context;
+
+    ProductAdapter(Context context) {
+        this.context = context;
+    }
 
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-         view = LayoutInflater.from(parent.getContext()).inflate(
-                R.layout.product_item,parent,false
+        view = LayoutInflater.from(parent.getContext()).inflate(
+                R.layout.product_item, parent, false
         );
 
         return new Holder(view);
@@ -38,11 +39,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.Holder> 
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
-    holder.productName.setText(products.get(position).getName());
-    holder.productPrice.setText(String.format("%s", products.get(position).getPrice()));
+        holder.productName.setText(products.get(position).getName());
+        holder.productPrice.setText(new StringBuilder().append("Ksh ").append(String.format("%s", products.get(position).getPrice())).toString());
 //    holder.imageView.setImageURI(Uri.parse(products.get(position).getImageUrl()));
         Glide.with(
-context
+                context
         ).asBitmap().load(products.get(position).getImageUrl()).into(holder.imageView);
     }
 
@@ -56,7 +57,7 @@ context
         notifyDataSetChanged();
     }
 
-    static class  Holder extends  RecyclerView.ViewHolder{
+    static class Holder extends RecyclerView.ViewHolder {
         TextView productName;
         TextView productPrice;
         ImageView imageView;
@@ -65,7 +66,7 @@ context
 
             super(itemView);
             productName = itemView.findViewById(R.id.productName);
-            productPrice =itemView.findViewById(R.id.productPrice);
+            productPrice = itemView.findViewById(R.id.productPrice);
             imageView = itemView.findViewById(R.id.productImage);
         }
     }
